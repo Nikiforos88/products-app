@@ -48,31 +48,30 @@ exports.create = async(req, res) => {
   
 }
 
-exports.update = async(req, res) => {
-    const _id = req.params.id;
-  
-    console.log("Update product with id:" + _id );
-    
-    const updateProduct = {
-        product: req.body.product,
-        cost: req.body.cost,
-        description: req.body.description,
-        quantity: req.body.quantity
-    };
-  
-    try {
+exports.update = async (req, res) => {
+  const _id = req.params.id;
+
+  console.log("Update product with id:" + _id);
+
+  const updateProduct = {
+      product: req.body.product,
+      cost: req.body.cost,
+      description: req.body.description,
+      quantity: req.body.quantity
+  };
+
+  try {
       const result = await Product.findOneAndUpdate(
-        {_id: _id},
-        updateProduct,
-        {new: true}
+          { _id: _id },
+          updateProduct,
+          { new: true }
       )
-      res.status(200).json({data: result});
+      res.status(200).json({ data: result });
       console.log('Product updated');
-    } catch(err) {
-      res.status(400).json({data: err});
-      console.log('Problem updating product with id: '+ _id);
-    }
-  
+  } catch (err) {
+      res.status(400).json({ data: err });
+      console.log('Problem updating product with id: ' + _id);
+  }
 }
 
 exports.delete = async(req, res) => {
