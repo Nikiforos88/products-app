@@ -11,7 +11,8 @@
   "jest": {
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
-      "/node_modules/", "/logs/"
+      "/node_modules/",
+      "/logs/"
     ]
   },
   "author": "",
